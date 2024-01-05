@@ -4,6 +4,14 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Support from "./pages/Support/Support";
 import TransactionPage from "./pages/Transaction/Transaction";
 import Signup from "./pages/Auth/Signup/Signup";
+import Login from "./pages/Auth/Login/Login";
+import RegisterEmailVerify from "./pages/Auth/RegisterEmailVerify/RegisterEmailVerify";
+import RegisterSuccess from "./pages/Auth/RegisterSuccess/RegisterSuccess";
+import ForgotPassword from "./pages/Auth/ForgotPassword/ForgotPassword";
+import ForgotPasswordSent from "./pages/Auth/ForgotPasswordSent/ForgotPasswordSent";
+import PasswordResetDone from "./pages/Auth/PasswordResetDone/PasswordResetDone";
+import ResetPassword from "./pages/Auth/ResetPassword/ResetPassword";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -20,6 +28,34 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <Signup/>,
+  },
+  {
+    path: "/login",
+    element: <Login/>,
+  },
+  {
+    path: "/register-email-verify",
+    element: <RegisterEmailVerify/>,
+  },
+  {
+    path: "/register-success",
+    element: <RegisterSuccess/>,
+  },
+  {
+    path: "/forgot-password",
+    element: <ForgotPassword/>,
+  },
+  {
+    path: "/forgot-password-sent",
+    element: <ForgotPasswordSent/>,
+  },
+  {
+    path: "/password-reset-done",
+    element: <PasswordResetDone/>,
+  },
+  {
+    path: "/reset-password",
+    element: <ResetPassword/>,
   },
 ]);
 
