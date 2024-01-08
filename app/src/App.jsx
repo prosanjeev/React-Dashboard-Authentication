@@ -4,13 +4,21 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Support from "./pages/Support/Support";
 import TransactionPage from "./pages/Transaction/Transaction";
 import Signup from "./pages/Auth/Signup/Signup";
-import Login from "./pages/Auth/Login/Login";
+import Signin from "./pages/Auth/Signin/Signin";
 import RegisterEmailVerify from "./pages/Auth/RegisterEmailVerify/RegisterEmailVerify";
 import RegisterSuccess from "./pages/Auth/RegisterSuccess/RegisterSuccess";
 import ForgotPassword from "./pages/Auth/ForgotPassword/ForgotPassword";
 import ForgotPasswordSent from "./pages/Auth/ForgotPasswordSent/ForgotPasswordSent";
 import PasswordResetDone from "./pages/Auth/PasswordResetDone/PasswordResetDone";
 import ResetPassword from "./pages/Auth/ResetPassword/ResetPassword";
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
 
 const router = createBrowserRouter([
   {
@@ -30,8 +38,8 @@ const router = createBrowserRouter([
     element: <Signup/>,
   },
   {
-    path: "/login",
-    element: <Login/>,
+    path: "/signin",
+    element: <Signin/>,
   },
   {
     path: "/register-email-verify",
@@ -60,9 +68,15 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const queryClient = new QueryClient()
+
   return (
     <>
+      <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
+      
     </>
   );
 }

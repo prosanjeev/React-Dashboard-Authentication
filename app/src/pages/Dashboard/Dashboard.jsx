@@ -4,8 +4,17 @@ import PortfolioSection from "./components/PortfolioSection";
 import PriceSection from "./components/PriceSection";
 import Transactions from "./components/Transactions";
 import InfoCard from "./components/InfoCard";
+import { useQuery } from "@tanstack/react-query";
+import { fetchExample } from "../../api/query/ExampleQuery";
 
 const Dashboard = ({}) => {
+  const ExampleQuery = useQuery({
+    queryKey : ["example"],
+    queryFn: fetchExample,
+  });
+
+  if (ExampleQuery.isLoading) return <div>Lodiing..........</div>
+
   return (
     <DashboardLayout title="Dashboard">
       <Grid

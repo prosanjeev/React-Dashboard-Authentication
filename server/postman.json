@@ -22,9 +22,9 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/user/signin",
+					"raw": "http://localhost:9000/user/signin",
 					"host": [
-						"{{url}}"
+						"http://localhost:9000"
 					],
 					"path": [
 						"user",
